@@ -27,21 +27,14 @@ function statLines() {
 
 function addrolls(statArr) {
     const [a,b,c]=statArr
-    
     return holdNum = a+b+c
-}
-
-function midStep(prop){
-    statLines()
-    tempstat[prop] = holdNum  
-    console.log('here')
 }
 
 function stats(stat){
     for (let prop in stat) {
         if (stat.hasOwnProperty(prop)) {
-            midStep(prop)
-            
+            statLines()
+            tempstat[prop] = holdNum  
         }
         
     }
