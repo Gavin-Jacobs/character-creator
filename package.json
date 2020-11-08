@@ -1,0 +1,20 @@
+{
+  "name": "personal",
+  "version": "0.1.0",
+  "description": "this is a test",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gavin-Jacobs/character-creator.git"
+  },
+  "author": "Gavin Jacobs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gavin-Jacobs/character-creator/issues"
+  },
+  "homepage": "https://github.com/Gavin-Jacobs/character-creator#readme"
+}
