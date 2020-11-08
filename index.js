@@ -13,10 +13,6 @@ function statLines() {
     let statArr = []
     for (let i = 0; i < 3; i++) {
        statArr.push(Math.floor((Math.random()*6)+1))
-       
-       if(statArr.length>3){
-           statArr=[]
-       }
 
     }console.log(statArr)
     
