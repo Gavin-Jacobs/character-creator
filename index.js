@@ -1,5 +1,5 @@
 
-let statArr = []
+// let statArr = []
 let tempstat = {
     str: 0,
     con: 0,
@@ -9,18 +9,16 @@ let tempstat = {
     cha: 0
 } 
 let holdNum = 0
-function statLines(arr) {
-    
+function statLines() {
+    let statArr = []
     for (let i = 0; i < 3; i++) {
-       arr.push(Math.floor((Math.random()*6)+1))
+       statArr.push(Math.floor((Math.random()*6)+1))
        
        if(statArr.length>3){
            statArr=[]
-       }else{
-           statArr = arr
        }
 
-    }console.log(arr)
+    }console.log(statArr)
     
     return addrolls(statArr)
 }
@@ -29,12 +27,12 @@ function statLines(arr) {
 
 function addrolls(statArr) {
     const [a,b,c]=statArr
-
+    
     return holdNum = a+b+c
 }
 
 function midStep(prop){
-    statLines(statArr)
+    statLines()
     tempstat[prop] = holdNum  
     console.log('here')
 }
