@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/Gavin-Jacobs/character-creator#readme",
   "dependencies": {
-    "prompt": "^1.0.0"
+    
   }
 }
