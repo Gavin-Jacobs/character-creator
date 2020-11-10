@@ -1,5 +1,21 @@
+// const chara = require('./characters/chara.js')
+const prompt =require('prompt')
+const fs = require ('fs')
+const path = require('path')
 
-// let statArr = []
+let texts=[]
+
+let tempChara ={
+    name:'',
+    att: {str: 0,
+    con: 0,
+    dex: 0,
+    int: 0,
+    wis: 0,
+    cha: 0
+    }
+}
+let holdArr = []
 let tempstat = {
     str: 0,
     con: 0,
@@ -36,5 +52,47 @@ function stats(stat){
     }
 }
 
-stats(tempstat)
-console.log(tempstat)
+function holdStats(arr){
+    for (let i = 0; i < 6; i++) {
+        arr.push(statLines())
+        
+    }
+    console.log(arr)
+    return arr
+}
+
+// stats(tempstat)
+// console.log(chara)
+// holdStats(holdArr)
+
+function nameChara (name){
+    return tempChara.name=name
+}
+
+function pickRollType(number){
+    const empty={
+        str: 0,
+        con: 0,
+        dex: 0,
+        int: 0,
+        wis: 0,
+        cha: 0
+    } 
+    if(number===1){
+        stats(tempstat)
+        tempChara.att=tempstat
+        return tempstat=empty
+    }else if(number===2){
+        holdStats(holdArr)
+        console.log(holdArr)
+        return holdArr=[]
+    }
+}
+
+function make(name, number){
+    nameChara(name)
+    pickRollType(number)
+    console.log(tempChara)
+}
+
+make('harry', 1)

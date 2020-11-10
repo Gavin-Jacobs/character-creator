@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Gavin-Jacobs/character-creator/issues"
   },
-  "homepage": "https://github.com/Gavin-Jacobs/character-creator#readme"
+  "homepage": "https://github.com/Gavin-Jacobs/character-creator#readme",
+  "dependencies": {
+    "prompt": "^1.0.0"
+  }
 }
