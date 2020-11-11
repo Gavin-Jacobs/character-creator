@@ -73,12 +73,12 @@ let tempstat = {
 let holdNum = 0
 function statLines() {
     let statArr = []
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
        statArr.push(Math.floor((Math.random()*6)+1))
 
     }
-    // console.log(statArr)
-    
+    statArr.sort((a, b)=> a-b)
+    statArr.shift()
     return addrolls(statArr)
 }
 
@@ -107,6 +107,7 @@ function holdStats(arr){
     console.log(arr)
     return arr
 }
+
 
 // stats(tempstat)
 // console.log(chara)
@@ -224,6 +225,5 @@ function setSkills(obj, number){
         return null
     }
 }
-
-make('harry', 1)
-console.log(chara)
+make('hreg', 1)
+console.log(chara[1])
