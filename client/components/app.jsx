@@ -1,12 +1,15 @@
 import React from 'react'
-
+import DnD from './DnD.jsx';
 class App extends React.Component {
   state = {
-   
+   'gretting': 'hello'
   }
   render () {
     return (
-      <h1>hello there</h1>
+      <>
+      <h1>{this.state.gretting}</h1>
+      <DnD />
+      </>
     )
   }
 }

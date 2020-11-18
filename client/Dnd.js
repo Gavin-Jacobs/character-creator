@@ -1,26 +1,9 @@
-const chara = [
-    {
-        id:1,
-        name:'',
-        att:{
-            str:10,
-            con:10,
-            dex:10,
-            int:10,
-            wis:10,
-            cha:10
-        },
-        mod:{
-            str:'+0',
-            con:'+0',
-            dex:'+0',
-            int:'+0',
-            wis:'+0',
-            cha:'+0'
-        },
-    }
-]
-let texts=[]
+module.exports={
+    statLines,
+    make,
+    nameChara,
+    
+}
 
 let tempChara ={
     name:'',
@@ -141,7 +124,8 @@ function make(name, number){
     pickRollType(number)
     attMods(tempstat)
     loopSkills(tempChara.mod)
-    chara.push(tempChara)
+    // console.log(tempChara)
+    return tempChara
 }
 
 function attMods(obj){
@@ -185,6 +169,7 @@ function attMods(obj){
         }else if(number===30){
             return tempChara.mod[obj]=+10
         }
+        // ((n-(n%2))/2)-5
     }
 
 }
@@ -225,5 +210,3 @@ function setSkills(obj, number){
         return null
     }
 }
-make('hreg', 1)
-console.log(chara[1])
