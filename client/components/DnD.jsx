@@ -1,6 +1,9 @@
 import React from 'react'
 import {make} from '../Dnd'
 
+import Stats from './Stats'
+import Mod from './Mods'
+import Skills from './Skills'
 class DnD extends React.Component {
     state = {
         detailsVisible: false,
@@ -66,7 +69,7 @@ class DnD extends React.Component {
       }
 
     render () {
-        const {att} = this.state.tempChara
+        const {att, mod, skills} = this.state.tempChara
       return (
         <>
         <div>
@@ -75,16 +78,24 @@ class DnD extends React.Component {
         </div>
         <div>
             <h2>{this.state.tempChara.name}</h2>
-        <div><ul><li>Str:{att.str}</li>
-        <li>Con: {att.con}</li>
-        <li>Dex: {att.dex}</li>
-        <li>Int: {att.int}</li>
-        <li>Wis: {att.wis}</li>
-        <li>Cha: {att.cha}</li>
-            </ul>
+        <div>
+            <span>
+            <h3>attributes</h3>
+                <ul>
+                    <Stats stat={att} />
+                </ul>
+            </span>
+            <span>
+                <h3>modifier</h3>
+                <ul>
+                    <Mod mods={mod}/>
+                </ul>
+            </span>
+            <span>
+                <h3>skills</h3>
+                <Skills skill={skills} />
+            </span>
         </div>
-        {/* <div>{this.state.tempChara.mod}</div>
-        <div>{this.state.tempChara.skills}</div> */}
         </div>
         </>
       )
