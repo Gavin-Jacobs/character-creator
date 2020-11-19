@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Stats = (props) => {
+    // console.log(props.stat)
     return (
       <>
         <li>Str:{props.stat.str}</li>

@@ -1,0 +1,10 @@
+if we store in a sqlite table{
+    id
+    name
+    str,
+    con,
+    dex,
+    int,
+    wis,
+    cha
+}

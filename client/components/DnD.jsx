@@ -10,42 +10,40 @@ class DnD extends React.Component {
 
         tempChara: {
             name:'',
-            att: {
             str: 0,
             con: 0,
             dex: 0,
             int: 0,
             wis: 0,
             cha: 0
-            },
-            mod:{
-                str: 0,
-                con: 0,
-                dex: 0,
-                int: 0,
-                wis: 0,
-                cha: 0
-            },
-            skills:{
-                atheletics:0,
-                acrobatics:0,
-                arcana:0,
-                animalHandling:0,
-                insight:0,
-                deception:0,
-                intimidation:0,
-                performance:0,
-                persuasion:0,
-                survival:0,
-                nature:0,
-                religion:0,
-                perception:0,
-                history:0,
-                stealth:0,
-                slightOfHand:0,
-                medicine:0,
-                investigation:0
-            }
+        },
+        mod:{
+            str: 0,
+            con: 0,
+            dex: 0,
+            int: 0,
+            wis: 0,
+            cha: 0
+        },
+        skills:{
+            atheletics:0,
+            acrobatics:0,
+            arcana:0,
+            animalHandling:0,
+            insight:0,
+            deception:0,
+            intimidation:0,
+            performance:0,
+            persuasion:0,
+            survival:0,
+            nature:0,
+            religion:0,
+            perception:0,
+            history:0,
+            stealth:0,
+            slightOfHand:0,
+            medicine:0,
+            investigation:0
         }
     }
     handleChange = e => {
@@ -59,17 +57,17 @@ class DnD extends React.Component {
       }
 
       clickHere = () => {
-          const thing = this.state.tempChara.name
-          
-          const tChar = make(thing, 1)
+          const { name } = this.state.tempChara
+          const [chara, mod, skills] = make(name, 1)
           this.setState({
-            tempChara: tChar
+            tempChara: chara,
+            mod: mod,
+            skills: skills
           })
-        console.log(this.state.tempChara)
+        // console.log(this.state.tempChara)
       }
 
     render () {
-        const {att, mod, skills} = this.state.tempChara
       return (
         <>
         <div>
@@ -82,20 +80,22 @@ class DnD extends React.Component {
             <span>
             <h3>attributes</h3>
                 <ul>
-                    <Stats stat={att} />
+                    <Stats stat={this.state.tempChara} />
                 </ul>
             </span>
             <span>
                 <h3>modifier</h3>
                 <ul>
-                    <Mod mods={mod}/>
+                    <Mod mods={this.state.mod}/>
                 </ul>
             </span>
             <span>
                 <h3>skills</h3>
-                <Skills skill={skills} />
+                <Skills skill={this.state.skills}/>
             </span>
         </div>
+        {/* <div>{this.state.tempChara.mod}</div>
+        <div>{this.state.tempChara.skills}</div> */}
         </div>
         </>
       )
