@@ -14,7 +14,7 @@ class App extends React.Component {
       <Route path='/maker' component={Maker} />
       <Route exact path='/' component={Home} />
       <Route path='/creator' component={DnD} />
-      
+      <Route path='/display' component={Display} />
       </>
     )
   }

@@ -6,8 +6,6 @@ import Mod from './Mods'
 import Skills from './Skills'
 class DnD extends React.Component {
     state = {
-        detailsVisible: false,
-
         tempChara: {
             name:'',
             str: 0,
@@ -47,7 +45,6 @@ class DnD extends React.Component {
         }
     }
     handleChange = e => {
-        // console.log('change', this.state)
         this.setState({
             tempChara: {
             ...this.state.tempChara,
@@ -64,7 +61,6 @@ class DnD extends React.Component {
             mod: mod,
             skills: skills
           })
-        // console.log(this.state.tempChara)
       }
 
     render () {
@@ -94,8 +90,6 @@ class DnD extends React.Component {
                 <Skills skill={this.state.skills}/>
             </span>
         </div>
-        {/* <div>{this.state.tempChara.mod}</div>
-        <div>{this.state.tempChara.skills}</div> */}
         </div>
         </>
       )

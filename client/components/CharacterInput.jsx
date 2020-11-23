@@ -67,6 +67,10 @@ class Maker extends React.Component{
             skills: skills
         })
     }
+    clickPost =() =>{
+        
+
+    }
     render(){
         const { mod, skills}=this.state
         return(
@@ -88,6 +92,7 @@ class Maker extends React.Component{
             <ul>
                 <Skills skill={skills} />
             </ul>
+            <button onClick={this.clickPost}>save this character</button>
             </>
         )
     }

@@ -411,6 +411,9 @@ var App = /*#__PURE__*/function (_React$Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
         path: "/creator",
         component: _DnD_jsx__WEBPACK_IMPORTED_MODULE_1__["default"]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+        path: "/display",
+        component: Display
       }));
     }
   }]);
@@ -564,6 +567,8 @@ var Maker = /*#__PURE__*/function (_React$Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "clickPost", function () {});
+
     return _this;
   }
 
@@ -614,7 +619,9 @@ var Maker = /*#__PURE__*/function (_React$Component) {
         mods: mod
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Skills__WEBPACK_IMPORTED_MODULE_2__["default"], {
         skill: skills
-      })));
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.clickPost
+      }, "save this character"));
     }
   }]);
 
@@ -704,7 +711,6 @@ var DnD = /*#__PURE__*/function (_React$Component) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      detailsVisible: false,
       tempChara: {
         name: '',
         str: 0,
@@ -745,7 +751,6 @@ var DnD = /*#__PURE__*/function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleChange", function (e) {
-      // console.log('change', this.state)
       _this.setState({
         tempChara: _objectSpread(_objectSpread({}, _this.state.tempChara), {}, _defineProperty({}, e.target.name, e.target.value))
       });
@@ -764,8 +769,7 @@ var DnD = /*#__PURE__*/function (_React$Component) {
         tempChara: chara,
         mod: mod,
         skills: skills
-      }); // console.log(this.state.tempChara)
-
+      });
     });
 
     return _this;
@@ -812,13 +816,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var Home = function Home(props) {
-  // console.log(props.stat)
+var Home = function Home() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Make your character"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/maker"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "input new cracter")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/creator"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "create new character")));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "create new character")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/display"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "retreve your character")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
