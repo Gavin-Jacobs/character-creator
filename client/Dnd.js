@@ -42,7 +42,6 @@ let skills={
     medicine:0,
     investigation:0
 }
-let holdArr = []
 let tempstat = {
     str: 12,
     con: 12,
@@ -52,6 +51,7 @@ let tempstat = {
     cha: 12
 } 
 let holdNum = 0
+
 function statLines() {
     let statArr = []
     for (let i = 0; i < 4; i++) {
@@ -62,8 +62,6 @@ function statLines() {
     statArr.shift()
     return addrolls(statArr)
 }
-
-
 
 function addrolls(statArr) {
     const [a,b,c]=statArr
@@ -82,23 +80,17 @@ function stats(stat){
 
 function holdStats(arr){
     for (let i = 0; i < 6; i++) {
-        arr.push(statLines())
-        
+        arr.push(statLines()) 
     }
-    // console.log(arr)
     return arr
 }
-
-
-// stats(tempstat)
-// console.log(chara)
-// holdStats(holdArr)
 
 function nameChara (name){
     return tempChara.name=name
 }
 
 function pickRollType(number){
+    let holdArr = []
     const empty={
         str: 0,
         con: 0,

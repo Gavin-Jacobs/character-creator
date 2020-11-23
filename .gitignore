@@ -1,11 +1,7 @@
 node_modules
 bundle*
-<<<<<<< HEAD
 *.splite3
 dev.sqlite3
 bundle.js
 server/public/bundle.js
 server/public/bundle.js.map
-=======
-*.sqlite3
->>>>>>> f9a61a9a2fc5d72ec4264fafc6d7040e8ef5196e

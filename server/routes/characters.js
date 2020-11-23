@@ -6,7 +6,7 @@ const router = express.Router()
 
 
 
-router.get('/:id', (req, res) => {
+router.get('/item/:id', (req, res) => {
     const id = Number(req.params.id)
     db.getCharacters(id)
       .then((character) => {
@@ -20,7 +20,7 @@ router.get('/:id', (req, res) => {
 
   router.post('/', (req, res) => {
     const newCharacter = req.body
-    db.newBlog(newCharacter)
+    db.postCharacter(newCharacter)
       .then(db.getCharacters)
       .then((character) => {
         return res.status(201).json(character)

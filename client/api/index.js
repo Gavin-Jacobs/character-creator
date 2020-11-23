@@ -4,8 +4,8 @@ const serverURL = 'http://localhost:3000/v1/characters/'
 
 export function getCharacters (id) {
     return request
-      .get(`http://localhost:3000/v1/characters/${id}`)
-      .then(response => response.body)
+      .get(`${serverURL}/item/${id}`)
+      .then(response => response.body[0])
   }
 
   export function addPost (character) {
@@ -14,10 +14,9 @@ export function getCharacters (id) {
         .post(serverURL)
         .send(character)
         .then(res => {
-            validateNoSnakeCase(res.body)
-            validatePostResponse('POST', serverURL, res.body)
             return res.body
       })
-      .catch(errorHandler('POST', serverURL))
+      .catch(err => {
+        res.status(500).send('DB error' + err)
+      })
   }
-  

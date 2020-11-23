@@ -3,6 +3,7 @@ import DnD from './DnD.jsx';
 import Maker from './CharacterInput'
 import { Route } from 'react-router-dom'
 import Home from './Home'
+import Display from './Display'
 
 class App extends React.Component {
   state = {

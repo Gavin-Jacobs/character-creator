@@ -1,6 +1,6 @@
 import React from 'react'
 import {take} from '../Dnd'
-
+import {addPost} from '../api'
 import Skills from './Skills'
 import Mods from './Mods'
 class Maker extends React.Component{
@@ -67,10 +67,13 @@ class Maker extends React.Component{
             skills: skills
         })
     }
-    clickPost =() =>{
+    clickPost =(e) =>{
+        e.preventDefault()
+          addPost(this.state.character)
         
 
     }
+
     render(){
         const { mod, skills}=this.state
         return(
