@@ -6,6 +6,7 @@ import Mods from './Mods'
 class Maker extends React.Component{
     state={
         character:{
+            id:undefined,
             name:'',
             str:undefined,
             con:undefined,
@@ -70,8 +71,7 @@ class Maker extends React.Component{
     clickPost =(e) =>{
         e.preventDefault()
           addPost(this.state.character)
-        
-
+            .then(chara=> this.setState({character: chara}))
     }
 
     render(){
@@ -88,6 +88,8 @@ class Maker extends React.Component{
                 <li>Cha: <input type='number' value={this.state.character.cha} name='cha' onChange={this.changeHereNum} /></li>
             </ul>
             <button onClick={this.clickThing}>generate character</button>
+            <button onClick={this.clickPost}>save this character</button>
+            <p>your id is: {this.state.character.id}<br/>remember it</p>
             <ul>
                 <Mods mods={mod}/>
             </ul>
@@ -95,7 +97,7 @@ class Maker extends React.Component{
             <ul>
                 <Skills skill={skills} />
             </ul>
-            <button onClick={this.clickPost}>save this character</button>
+            
             </>
         )
     }

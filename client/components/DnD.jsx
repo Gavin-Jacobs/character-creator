@@ -1,9 +1,9 @@
 import React from 'react'
 import {make} from '../Dnd'
-
 import Stats from './Stats'
 import Mod from './Mods'
 import Skills from './Skills'
+
 class DnD extends React.Component {
     state = {
         tempChara: {
@@ -44,6 +44,7 @@ class DnD extends React.Component {
             investigation:0
         }
     }
+
     handleChange = e => {
         this.setState({
             tempChara: {

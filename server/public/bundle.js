@@ -533,6 +533,7 @@ var Maker = /*#__PURE__*/function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       character: {
+        id: undefined,
         name: '',
         str: undefined,
         con: undefined,
@@ -599,7 +600,11 @@ var Maker = /*#__PURE__*/function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "clickPost", function (e) {
       e.preventDefault();
-      Object(_api__WEBPACK_IMPORTED_MODULE_2__["addPost"])(_this.state.character);
+      Object(_api__WEBPACK_IMPORTED_MODULE_2__["addPost"])(_this.state.character).then(function (chara) {
+        return _this.setState({
+          character: chara
+        });
+      });
     });
 
     return _this;
@@ -648,13 +653,13 @@ var Maker = /*#__PURE__*/function (_React$Component) {
         onChange: this.changeHereNum
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.clickThing
-      }, "generate character"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Mods__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, "generate character"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.clickPost
+      }, "save this character"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "your id is: ", this.state.character.id, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "remember it"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Mods__WEBPACK_IMPORTED_MODULE_4__["default"], {
         mods: mod
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Skills__WEBPACK_IMPORTED_MODULE_3__["default"], {
         skill: skills
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.clickPost
-      }, "save this character"));
+      })));
     }
   }]);
 
@@ -679,11 +684,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Mods__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Mods */ "./client/components/Mods.jsx");
 /* harmony import */ var _Skills__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Skills */ "./client/components/Skills.jsx");
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../api */ "./client/api/index.js");
+/* harmony import */ var _Dnd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Dnd */ "./client/Dnd.js");
+/* harmony import */ var _Dnd__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_Dnd__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -712,6 +731,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Display = /*#__PURE__*/function (_React$Component) {
   _inherits(Display, _React$Component);
 
@@ -730,7 +750,7 @@ var Display = /*#__PURE__*/function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "state", {
       character: {
-        id: 0,
+        id: 1,
         name: '',
         str: undefined,
         con: undefined,
@@ -738,6 +758,34 @@ var Display = /*#__PURE__*/function (_React$Component) {
         "int": undefined,
         wis: undefined,
         cha: undefined
+      },
+      mod: {
+        str: 0,
+        con: 0,
+        dex: 0,
+        "int": 0,
+        wis: 0,
+        cha: 0
+      },
+      skills: {
+        atheletics: 0,
+        acrobatics: 0,
+        arcana: 0,
+        animalHandling: 0,
+        insight: 0,
+        deception: 0,
+        intimidation: 0,
+        performance: 0,
+        persuasion: 0,
+        survival: 0,
+        nature: 0,
+        religion: 0,
+        perception: 0,
+        history: 0,
+        stealth: 0,
+        slightOfHand: 0,
+        medicine: 0,
+        investigation: 0
       }
     });
 
@@ -747,6 +795,18 @@ var Display = /*#__PURE__*/function (_React$Component) {
         return _this.setState({
           character: chara
         });
+      }).then(function () {
+        var here = _this.state.character;
+
+        var _take = Object(_Dnd__WEBPACK_IMPORTED_MODULE_4__["take"])(here),
+            _take2 = _slicedToArray(_take, 2),
+            mod = _take2[0],
+            skills = _take2[1];
+
+        _this.setState({
+          mod: mod,
+          skills: skills
+        });
       });
     });
 
@@ -754,6 +814,10 @@ var Display = /*#__PURE__*/function (_React$Component) {
       _this.setState({
         character: _objectSpread(_objectSpread({}, _this.state.character), {}, _defineProperty({}, e.target.name, Number(e.target.value)))
       });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "clickhere", function () {
+      console.log(_this.state);
     });
 
     return _this;
@@ -769,7 +833,7 @@ var Display = /*#__PURE__*/function (_React$Component) {
         onChange: this.changeHereNum
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.recallChara
-      }, "retreve your character"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Name: ", this.state.character.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Str: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "retreve your character"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "remove this character"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Name: ", this.state.character.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Str: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "number",
         value: this.state.character.str,
         name: "str",
@@ -799,7 +863,13 @@ var Display = /*#__PURE__*/function (_React$Component) {
         value: this.state.character.cha,
         name: "cha",
         onChange: this.changeHereNum
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "update your character"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null));
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.clickhere
+      }, "update your character"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Mods__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        mods: this.state.mod
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Skills__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        skill: this.state.skills
+      })));
     }
   }]);
 
